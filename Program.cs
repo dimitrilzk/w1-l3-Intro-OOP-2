@@ -10,6 +10,10 @@ namespace w1_l3_Intro_OOP_2
     {
         static void Main(string[] args)
         {
+            ContoCorrente conto = new ContoCorrente();
+            //conto.StartMenu();
+            conto.NomeCliente = "mario";
+            Console.WriteLine(conto.NomeCliente);
         }
     }
 }
