@@ -53,11 +53,11 @@ namespace w1_l3_Intro_OOP_2
             }
             if(scelta == 2)
             {
-                //Versamento();
+                Versamento();
             }
             if(scelta == 3)
             {
-                //Prelievo();
+                Prelievo();
             }
             if(scelta == 4)
             {
@@ -85,10 +85,49 @@ namespace w1_l3_Intro_OOP_2
             _cognomeCliente = Cognome;
             _saldo += Versamento;
             _contoAperto = true;
-            Console.WriteLine($"Conto corrente numero 51434 intestato a: {_nomeCliente} {_cognomeCliente} con saldo: {_saldo} euro è stato aperto con successo");
+            if (_saldo < 1000)
+            {
+                Console.WriteLine("Siamo spiacenti, non è stato possibile aprire il conto, motivo: versamento iniziale insufficiente.");
+            }else
+            {
+                Console.WriteLine($"Conto corrente numero 51434 intestato a: {_nomeCliente} {_cognomeCliente} con saldo: {_saldo} euro è stato aperto con successo.");
+            }
             StartMenu();
-
-
+        }
+        private void Versamento()
+        {
+            if (_contoAperto == false)
+            {
+                Console.WriteLine("Impossibile eseguire l'operazione di versamento è necessario aprire un conto.");
+            }
+            else
+            {
+                Console.WriteLine("Inserire l'importo che si desidera versare: ");
+                int ImportoVersato = int.Parse((string)Console.ReadLine());
+                Console.WriteLine("Importo versato correttamente.");
+                _saldo += ImportoVersato;
+                Console.WriteLine($"Nuovo saldo sul Conto Corrente: {_saldo}");
+            }
+        }
+        private void Prelievo()
+        {
+            if(_contoAperto == false)
+            {
+                Console.WriteLine("Impossibile eseguire l'operazione di prelievo è necessario aprire un conto.");
+            }else
+            {
+                Console.WriteLine("Inserire l'importo che si desidera prelevare: ");
+                int ImportoDaPrelevare = int.Parse((string)Console.ReadLine());
+                if (ImportoDaPrelevare > _saldo)
+                {
+                    Console.WriteLine("Non è stato possibile eseguire l'operazione di prelievo, il credito è insufficiente.");
+                }else
+                {
+                    Console.WriteLine("Prelievo eseguito, ritira le banconote.");
+                    _saldo -= ImportoDaPrelevare;
+                    Console.WriteLine($"Nuovo saldo sul Conto Corrente: {_saldo}");
+                }
+            }
         }
     }
 }
