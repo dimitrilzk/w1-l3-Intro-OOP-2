@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,8 +44,51 @@ namespace w1_l3_Intro_OOP_2
             Console.WriteLine("2. EFFETTUA UN VERSAMENTO");
             Console.WriteLine("3. EFFETTUA UN PRELIEVO");
             Console.WriteLine("4. ESCI");
-            Console.ReadLine();
-           
+            
+            int scelta = int.Parse(Console.ReadLine());
+
+            if (scelta == 1)
+            {
+                CreaNuovoConto();
+            }
+            if(scelta == 2)
+            {
+                //Versamento();
+            }
+            if(scelta == 3)
+            {
+                //Prelievo();
+            }
+            if(scelta == 4)
+            {
+                Console.WriteLine("Chiusura del programma...");
+            }
+            else
+            {
+                Console.WriteLine("Hai selezionato una voce non valida");
+                StartMenu();
+            }
+        }
+        private void CreaNuovoConto()
+        {
+            Console.WriteLine("Nome cliente: ");
+            string Nome = Console.ReadLine();
+
+            Console.WriteLine("Cognome cliente: ");
+            string Cognome = Console.ReadLine();
+
+            Console.WriteLine("Eseguire un versamento (minimo 1000 euro): ");
+            int Versamento = int.Parse((string)Console.ReadLine());
+
+            ContoCorrente conto1 = new ContoCorrente();
+            _nomeCliente = Nome;
+            _cognomeCliente = Cognome;
+            _saldo += Versamento;
+            _contoAperto = true;
+            Console.WriteLine($"Conto corrente numero 51434 intestato a: {_nomeCliente} {_cognomeCliente} con saldo: {_saldo} euro è stato aperto con successo");
+            StartMenu();
+
+
         }
     }
 }
