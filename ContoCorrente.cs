@@ -108,6 +108,7 @@ namespace w1_l3_Intro_OOP_2
                 _saldo += ImportoVersato;
                 Console.WriteLine($"Nuovo saldo sul Conto Corrente: {_saldo}");
             }
+            StartMenu();
         }
         private void Prelievo()
         {
@@ -128,6 +129,7 @@ namespace w1_l3_Intro_OOP_2
                     Console.WriteLine($"Nuovo saldo sul Conto Corrente: {_saldo}");
                 }
             }
+            StartMenu();
         }
     }
 }
