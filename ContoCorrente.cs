@@ -35,37 +35,47 @@ namespace w1_l3_Intro_OOP_2
         }
         public void StartMenu()
         {
-            Console.WriteLine("*************************************");
-            Console.WriteLine("WELCOME   TO   YOURE   BANK   ACCOUNT");
-            Console.WriteLine("*************************************");
+            try
+            {
+                Console.WriteLine("*************************************");
+                Console.WriteLine("WELCOME   TO   YOURE   BANK   ACCOUNT");
+                Console.WriteLine("*************************************");
 
-            Console.WriteLine("\nScegli l'operazione da effettuare:");
-            Console.WriteLine("1. APRI UN NUOVO CONTO CORRENTE");
-            Console.WriteLine("2. EFFETTUA UN VERSAMENTO");
-            Console.WriteLine("3. EFFETTUA UN PRELIEVO");
-            Console.WriteLine("4. ESCI");
-            
-            int scelta = int.Parse(Console.ReadLine());
+                Console.WriteLine("\nScegli l'operazione da effettuare:");
+                Console.WriteLine("1. APRI UN NUOVO CONTO CORRENTE");
+                Console.WriteLine("2. EFFETTUA UN VERSAMENTO");
+                Console.WriteLine("3. EFFETTUA UN PRELIEVO");
+                Console.WriteLine("4. ESCI");
 
-            if (scelta == 1)
+                int scelta = int.Parse(Console.ReadLine());
+
+
+
+                if (scelta == 1)
+                {
+                    CreaNuovoConto();
+                }
+                if (scelta == 2)
+                {
+                    Versamento();
+                }
+                if (scelta == 3)
+                {
+                    Prelievo();
+                }
+                if (scelta == 4)
+                {
+                    Console.WriteLine("Chiusura del programma...");
+                }
+                else
+                {
+                    Console.WriteLine("Hai selezionato una voce non valida");
+                    StartMenu();
+                }
+                
+            }catch(Exception ex)
             {
-                CreaNuovoConto();
-            }
-            if(scelta == 2)
-            {
-                Versamento();
-            }
-            if(scelta == 3)
-            {
-                Prelievo();
-            }
-            if(scelta == 4)
-            {
-                Console.WriteLine("Chiusura del programma...");
-            }
-            else
-            {
-                Console.WriteLine("Hai selezionato una voce non valida");
+                Console.WriteLine("Hai digitato un valore non valido!");
                 StartMenu();
             }
         }
