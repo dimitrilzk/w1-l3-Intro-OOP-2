@@ -83,13 +83,14 @@ namespace w1_l3_Intro_OOP_2
             ContoCorrente conto1 = new ContoCorrente();
             _nomeCliente = Nome;
             _cognomeCliente = Cognome;
-            _saldo += Versamento;
+            _saldo = 0;
             _contoAperto = true;
-            if (_saldo < 1000)
+            if (Versamento < 1000)
             {
                 Console.WriteLine("Siamo spiacenti, non è stato possibile aprire il conto, motivo: versamento iniziale insufficiente.");
             }else
             {
+                _saldo += Versamento;
                 Console.WriteLine($"Conto corrente numero 51434 intestato a: {_nomeCliente} {_cognomeCliente} con saldo: {_saldo} euro è stato aperto con successo.");
             }
             StartMenu();
